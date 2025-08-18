@@ -20,12 +20,12 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+TACC position: [? if tacc_toleration : toleration ?][? if tacc_in_government : in government - ?][? if tacc_toleration == 0 and tacc_in_government == 0 and tacc_caretaker == 0 : opposition ?][? if tacc_caretaker : caretaker government ?]
+[? if in_weimar_coalition and tacc_in_government: Progressive-Liberal Coalition ?][? if in_grand_coalition and tacc_in_government: Grand Coalition ?][? if in_progressive_front and tacc_in_government: Progressive Front ?][? if in_popular_front and tacc_in_government: Popular Front ?][? if in_left_front and tacc_in_government: Left Front ?][? if in_tacc_majority and tacc_in_government: TACC majority ?][? if in_minority_government and tacc_in_government: minority government ?][? if in_emergency_government and tacc_in_government: emergency government ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if tacc_in_government and not in_tacc_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if tacc_in_government and (in_left_front or in_popular_front): SPC coalition dissent: [+ spc_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
@@ -103,47 +103,47 @@ Economic growth: [+ economic_growth_2 +]%
 
 @paramilitaries
 on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
+if (Q.sd_strength) {
+    Q.sd_strength_2 = Q.sd_strength.toFixed(1);
 }
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
+if (Q.cc_strength) {
+    Q.cc_strength_2 = Q.cc_strength.toFixed(1);
 }
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
+if (Q.la_strength) {
+    Q.la_strength_2 = Q.la_strength.toFixed(1);
 }
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
+if (Q.as_strength) {
+    Q.as_strength_2 = Q.as_strength.toFixed(1);
 }
 !}
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Storm Detachment</span>!} Strength: [+ sd_strength_2 +] thousand
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+SD Militarization: [+ sd_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">CC</span>!} Strength: [+ cc_strength_2 +] thousand
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+CC Militarization: [+ cc_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Little Army</span>!} Strength: [+ la_strength_2 +] thousand
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+LA Militarization: [+ la_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">Army of Salt</span>!} Strength: [+ as_strength_2 +] thousand
 
-SA Militarization: [+ sa_militancy : militancy +]
+AS Militarization: [+ as_militancy : militancy +]
 
 = Official military/paramilitaries
 
-Reichswehr: [+ reichswehr_strength +] thousand troops.
+Armia Kasodukrea: [+ army_strength +] thousand troops.
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
+Armia Loyalty: [+ army_loyalty : loyalty +]
 
-Prussian police: [+ prussian_police_strength +] thousand members.
+National Guard: [+ police_strength +] thousand members.
 
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
+National Guard loyalty: [+ police_loyalty : loyalty +]
 
 [? if tacc_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
