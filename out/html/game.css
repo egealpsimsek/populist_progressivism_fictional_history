@@ -537,36 +537,42 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
+.seat.cpcm {
     fill: #8B0000;
 }
-.seat.spd {
+.seat.spc {
+    fill: #FF0000;
+}
+.seat.tacc {
     fill: #E3000F;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
-.seat.ddp {
+.seat.lp {
     fill: #DCCA4A;
 }
-.seat.z {
+.seat.npl {
     fill: #000;
 }
-.seat.bvp {
+.seat.ppm {
     fill: #69A2BE;
 }
-.seat.dvp {
+.seat.npr {
     fill: #D5AC27;
 }
 .seat.other {
     fill: #909090;
 }
-.seat.dnvp {
+.seat.regionalist {
+    fill: #909090;
+}
+.seat.felpua {
     fill: #3F7BC1;
 }
-.seat.nsdap {
+.seat.reactionary {
     fill: #954B00;
 }
-.seat.sapd {
+.seat.wlf {
     fill: #C40000;
 }
 
