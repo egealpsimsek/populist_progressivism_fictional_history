@@ -16,13 +16,13 @@ function addMonths(date, months) {
 d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataMax, dataMin, additionalMonths) {
     /* params */
     if (!parties) {
-        parties = ['spd', 'kpd', 'ddp', 'z', 'dvp', 'dnvp', 'nsdap', 'other'];
+        parties = ['tacc', 'cpcm', 'spc', 'lp', 'npl', 'npr', 'felpua', 'reactionary', 'regionalist', 'other'];
     }
     if (!partyColors) {
-        partyColors = {'spd': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0'};
+        partyColors = {'tacc': '#E3000F', 'cpcm': '#8B0000', 'spc': '#FF0000', 'lp': '#DCCA4A', 'npl': '#000', 'npr': '#D5AC27', 'felpua': '#3f7bc1', 'reactionary': '#954B00', 'regionalist': '#a0a0a0'; 'other': '#a0a0a0'};
     }
     if (!partyNames) {
-        partyNames = {'spd': 'SPD', 'kpd': 'KPD', 'ddp': 'DDP', 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others'};
+        partyNames = {'tacc': 'TACC', 'cpcm': 'CPCM', 'spc': 'SPC', 'lp': 'DDP', 'npl': 'NP (L) + PPM', 'npr': 'NP (R)', 'felpua': 'FEL-PUA', 'reactionaries': 'TDR + I!', 'regionalist': 'Regionalist', 'other': 'Others'};
     }
     if (!additionalMonths) {
         additionalMonths = 10;
