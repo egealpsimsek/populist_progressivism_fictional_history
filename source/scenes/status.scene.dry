@@ -6,7 +6,7 @@ if (Q.unemployed) {
     Q.unemployed_2 = Q.unemployed.toFixed(1);
 }
 if (Q.inflation) {
-    Q.inflation_2 = Q.pop_inflation.toFixed(1);
+    Q.inflation_2 = Q.inflation.toFixed(1);
 }
 Q.economic_growth_2 = '0';
 if (Q.economic_growth) {
@@ -20,20 +20,20 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-TACC position: [? if tacc_toleration : toleration ?][? if tacc_in_government : in government - ?][? if tacc_toleration == 0 and tacc_in_government == 0 and tac_caretaker == 0 : opposition ?][? if tacc_caretaker : caretaker government ?]
-[? if in_liberal_coalition and tacc_in_government: Liberal & Progressive Coalition ?][? if in_grand_coalition and tacc_in_government: Grand Coalition ?][? if in_popular_front and tacc_in_government: Popular Front ?][? if in_left_front and tacc_in_government: Left Front ?][? if in_tacc_majority and tacc_in_government: TACC majority ?][? if in_minority_government and tacc_in_government: minority government ?][? if in_emergency_government and tacc_in_government: emergency government ?]
+SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
+[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
 
-[? if tacc_in_government and not in_tacc_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if tacc_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-President: [+ president +] ([+ president_party +])
+President: [+ president +]
 
-Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
+Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
 Reichstag composition:
 
@@ -55,17 +55,15 @@ Reichstag composition:
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-[? if tacc_in_government = 1 : Budget: [+ budget +] ?]
+[? if spd_in_government = 1 : Budget: [+ budget +] ?]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Economics
 
-Governmental/Business Inflation: [+ gov_inflation_2 +]%
+Inflation: [+ inflation_2 +]%
 
-Popular Inflation: [+ pop_inflation_2 +]%
-
-[? if tacc_in_government = 1 : Unemployment: [+ unemployed_2 +]% ?]
+[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
 
 Economic growth: [+ economic_growth_2 +]%
 
@@ -77,78 +75,77 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Inter-party Relations
 
-{!<span class="tooltip-text" title="Communist Party of Casoducria and Moorland">CPCM</span>!}: [+ cpcm_relation : relationships +]
 
-{!<span class="tooltip-text" title="Socialist Party of Casoducria">SPC</span>!}: [+ spc_relation : relationships +]
+{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
 
-{!<span class="tooltip-text" title="Liberal Party">!}[? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]{!</span>!}: [+ lp_relation : relationships +]
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Nationalist Party of Greater Casoducria (Liberal)">NP (L)</span>!}: [+ npl_relation : relationships +]
+{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Farmer and Entrepeneurs League - People and Unity Alliance">FEL-PUA</span>!}: [+ felpua_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
 
-{!<span class="tooltip-text" title="Nationalist Party of Greater Casoducria (Right-Wing)">NP (R)</span>!}: [+ npr_relation : relationships +]
+{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Party of the Divine Right / Independence!">TDR/I</span>!}: [+ reactionary_relation : relationships +]
+{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
 
 = Internal Factions of the SPD
 
-{!<span class="tooltip-text" title="The Leftist faction led by Adolphus Hieutlar is interested in radical, transformative policies and cooperation with the SPC and CPCM.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center, or the Orthodox faction, led by August von Begea seeks a middle ground between the more socialist thought of Hieutlar and the more nationalist progressivism of Semyonov.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The tiny Liberal faction's goal is reconciling a populist progressive platform and capitalism.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Nationalist faction led by Gunther Semyonov are pragmatic participants in the TACC itself, seeking to steer it in a nationalistic albeit still socially progressive direction that would reignite the Great War. While some in this faction believe in Civic Casoducrian nationalism, Semyonov himself has a far more ethnic charactheristic in mind. Economically this faction supports Corporatism">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
 
 @paramilitaries
 on-arrival: {!
-if (Q.sd_strength) {
-    Q.sd_strength_2 = Q.sd_strength.toFixed(1);
+if (Q.rb_strength) {
+    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
 }
-if (Q.cc_strength) {
-    Q.cc_strength_2 = Q.cc_strength.toFixed(1);
+if (Q.rfb_strength) {
+    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
 }
-if (Q.la_strength) {
-    Q.la_strength_2 = Q.la_strength.toFixed(1);
+if (Q.sh_strength) {
+    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
 }
-if (Q.as_strength) {
-    Q.as_strength_2 = Q.as_strength.toFixed(1);
+if (Q.sa_strength) {
+    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
 }
 !}
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Storm Detachment is the paramilitary army of the TACC, primarily composed of Great War veterans and extremely proffessional and disciplined.">Storm Detachment</span>!} Strength: [+ sd_strength_2 +] combatants
+{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
 
-Storm Detachment Militarization: [+ sd_militancy : militancy +]
+Reichsbanner Militarization: [+ rb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Crimson Corps (Karmazynowy Korpus) is a communist group associated with the CPCM.">CC</span>!} Strength: [+ cc_strength_2 +] combatants
+{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
-Crimson Corps Militarization: [+ cc_militancy : militancy +]
+RFB Militarization: [+ rfb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Little Army is a right-wing organization of war veterans associated with the Nationalist Party and with Allen Pazceky specifically.">Little Army</span>!} Strength: [+ la_strength_2 +] combatants
+{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
 
-Little Army Militarization: [+ la_militancy : militancy +]
+Stahlhelm Militarization: [+ sh_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Army of Salt is an ultranationalist group hellbent on oppressing and subjugating the Moorish people.">Army of Salt</span>!} Strength: [+ as_strength_2 +] combatants
+{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
 
-Army of Salt Militarization: [+ as_militancy : militancy +]
+SA Militarization: [+ sa_militancy : militancy +]
 
 = Official military/paramilitaries
 
-Armia Kasodukreanska: [+ army_strength +] troops.
+Reichswehr: [+ reichswehr_strength +] thousand troops.
 
-Armia Kasodukreanska Loyalty: [+ army_loyalty : loyalty +]
+Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
 
-National Guard: [+ police_strength +] members.
+Prussian police: [+ prussian_police_strength +] thousand members.
 
-National Guard Loyalty: [+ police_loyalty : loyalty +]
+Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
 
-[? if tacc_in_government : Governmental Institution Loyalty: [+ institution_loyalty : loyalty +] ?]
+[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
 @polls
 on-arrival: {!
@@ -161,40 +158,36 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 (if the election were to be held now):
 
-TACC: [+ tacc_votes +]%
+SPD: [+ spd_votes +]%
 
-[? if WLF_formed: WLF: [+ wlf_votes +]% ?]
+[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
-Nationalist Party (Liberals): [+ npl_votes +]%
+Z + BVP: [+ z_votes +]%
 
-CPCM: [+ cpcm_votes +]%
+KPD: [+ kpd_votes +]%
 
-SPC: [+ spc_votes +]%
+[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
 
-[? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ lp_votes +]%
+DVP: [+ dvp_votes +]%
 
-Nationalist Party (Right-Wing): [+ npr_votes +]%
+DNVP: [+ dnvp_votes +]%
 
-FEL-PUA: [+ felpua_votes +]%
-
-TDR + I: [+ reactionary_votes +]%
-
-Regionalists: [+ regionalist_votes +]%
+NSDAP: [+ nsdap_votes +]%
 
 Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: TACC: [+ workers_tacc_display +]%, NP(L): [+ workers_npl_display +]%, CPCM: [+ workers_cpcm_display +]%, SPC: [+ workers_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ workers_lp_display +]%, NP(R): [+ workers_npr_display +]%; FEL-PUA: [+ workers_felpua_display +]%, TDR/I: [+ workers_reactionary_display +]%, Regionalists: [+ workers_regionalist_display +]%, Others: [+ workers_other_display +]% [? if wlf_formed: WLF: [+ workers_wlf_display +]% ?]
+Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: TACC: [+ new_middle_tacc_display +]%, NP(L): [+ new_middle_npl_display +]%, CPCM: [+ new_middle_cpcm_display +]%, SPC: [+ new_middle_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ new_middle_lp_display +]%, NP(R): [+ new_middle_npr_display +]%; FEL-PUA: [+ new_middle_felpua_display +]%, TDR/I: [+ new_middle_reactionary_display +]%, Regionalists: [+ new_middle_regionalist_display +]%, Others: [+ new_middle_other_display +]% [? if wlf_formed: WLF: [+ new_middle_wlf_display +]% ?]
+New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: TACC: [+ old_middle_tacc_display +]%, NP(L): [+ old_middle_npl_display +]%, CPCM: [+ old_middle_cpcm_display +]%, SPC: [+ old_middle_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ old_middle_lp_display +]%, NP(R): [+ old_middle_npr_display +]%; FEL-PUA: [+ old_middle_felpua_display +]%, TDR/I: [+ old_middle_reactionary_display +]%, Regionalists: [+ old_middle_regionalist_display +]%, Others: [+ old_middle_other_display +]% [? if wlf_formed: WLF: [+ old_middle_wlf_display +]% ?]
+Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: TACC: [+ rural_tacc_display +]%, NP(L): [+ rural_npl_display +]%, CPCM: [+ rural_cpcm_display +]%, SPC: [+ rural_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ rural_lp_display +]%, NP(R): [+ rural_npr_display +]%; FEL-PUA: [+ rural_felpua_display +]%, TDR/I: [+ rural_reactionary_display +]%, Regionalists: [+ rural_regionalist_display, Others: [+ rural_other_display +]% [? if wlf_formed: WLF [+ rural_wlf_display +]% ?]
+Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: TACC: [+ unemployed_tacc_display +]%, NP(L): [+ unemployed_npl_display +]%, CPCM: [+ unemployed_cpcm_display +]%, SPC: [+ unemployed_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ unemployed_lp_display +]%, NP(R): [+ unemployed_npr_display +]%; FEL-PUA: [+ unemployed_felpua_display +]%, TDR/I: [+ unemployed_reactionary_display +]%, Regionalists: [+ unemployed_regionalist_display +]%, Others: [+ unemployed_other_display +]% [? if wlf_formed: WLF: [+ unemployed_wlf_display +]% ?]
+Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: TACC: [+ catholics_tacc_display +]%, NP(L): [+ catholics_npl_display +]%, CPCM: [+ catholics_cpcm_display +]%, SPC: [+ catholics_spc_display +]%, [? if not lp_name: LP?][? if lp_name != 0 : [+ lp_name +]?]: [+ catholics_lp_display +]%, NP(R): [+ catholics_npr_display +]%; FEL-PUA: [+ catholics_felpua_display +]%, TDR/I: [+ catholics_reactionary_display +]%, Regionalists: [+ catholics_regionalist_display +]%, Others: [+ catholics_other_display +]% [? if wlf_formed: WLF: [+ catholics_wlf_display +]% ?]
+Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
