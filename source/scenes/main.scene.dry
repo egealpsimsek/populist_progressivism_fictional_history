@@ -10,11 +10,11 @@ if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
 !}
-max-cards: 3
+max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+[? if year = 1918 and month = 7 : The current monarchist government has fallen, and a republic declared!. A constitutional convention will soon gather, and afterwards an election will take place soon. ?]
 
 - @party
 - @govt
@@ -33,11 +33,11 @@ if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
 !}
-max-cards: 4
+max-cards: 6
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+[? if year = 1918 and month = 7 : The current monarchist government has fallen, and a republic declared!. A constitutional convention will soon gather, and afterwards an election will take place soon. ?]
 
 - @party
 - @govt
