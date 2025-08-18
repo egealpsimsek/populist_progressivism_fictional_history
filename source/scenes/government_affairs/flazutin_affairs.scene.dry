@@ -1,0 +1,97 @@
+title: The Flazutin Bulwark
+new-page: true
+is-card: true
+view-if: tacc_flazutin = 1 and flazutin_affairs_timer <= 0
+on-arrival: prussian_affairs_timer += 6; month_actions += 1
+tags: govt_affairs
+card-image: img/braun.jpg
+#subtitle: The state government of Flazutin is a bulwark of democracy...
+
+= Flazutin Affairs
+
+Flazutin, the homeland of the Flaz people, is governed by our party in a coalition with several Flaz parties and ours. It is critical to showcase the governoral success of TACC, and it is led by Herman Göething.
+
+We can enact policies in Flazutin.
+
+- @police_loyalty: Bolster the loyalty of the police.
+- @police_strength: Recruit additional police.
+- @bureaucracy: Purge the bureaucracy of reactionary elements.
+- @ban_as: Ban the Army of Salt, the ultranationalist paramilitary group.
+- @unban_as: Reverse the Army of Salt ban.
+- @ban_cc: Ban the Crimson Corps, the Communist paramilitary.
+- @unban_cc: Reverse the CC ban.
+- @ban_la: Ban the Little Army, the Nationalist paramilitary.
+- @unban_la: Reverse the Little Army ban.
+- @negotiate_concordat: Negotiate a eucemenical agreement with the Church of St Matklin.
+- @sign_concordat: Sign a eucemenical agreement with the Church of St Matklin.
+- @root: No new policies are needed.
+- @easy_discard
+- @cancel_advisor_action
+
+@police_loyalty
+view-if: national_guard_loyalty < 1
+on-arrival: national_guard_loyalty += 0.1
+
+# increase national guard loyalty
+The national guard of Flazutin has historically been overrun with seperatists and casoducrian nationalists, and we are trying to change this, little by little. We have improved the training and recruitment process to select for a broader demographic than the traditional conservatives, and to put a tighter leash on their political activity. In addition, we set up committees to investigate the ranks of the national guard and remove those with far-right sympathies. It is a slow and arduous work.
+
+Current national guard loyalty: [+ police_loyalty : loyalty +].
+
+@police_strength
+on-arrival: police_strength += 20
+
+We have increased the size of the Flazutin National Guard.
+
+@bureaucracy
+on-arrival: police_loyalty += 0.05; nationalism -= 5; pacifism += 1; democratization += 1; pro_republic += 3*(1-dissent); new_middle_tacc += 2*(1-dissent) if democratization >= 3; new_middle_tacc += 2*(1-dissent) if democratization >= 4; coup_progress += 0.5
+
+The bureaucracy is deeply reactionary, and many abuse their power to favor the political right. By removing the pro-monarchy and pro-dictatorship elements, we can democratize it. Some of our opponents claim that we are infringing on individual freedoms, but perhaps the security of the republic requires it.
+
+@ban_as
+view-if: reactionary_urgency >= 3 and as_banned == 0
+on-arrival: as_strength *= 0.9; as_strength *= 0.75 if police_loyalty >= 0.75; as_banned = 1; npr_relation -= 3; police_loyalty -= 0.05; as_militancy -= 0.05; as_ban_timer = 6;
+
+As it turns out, the Army of Salt has many allies in the national guard and bureaucracy. Our relationship with the national guard weakens, and the Army of Salt can still organize illegally, right under our noses. [? if police_loyalty >= 0.7 : Nevertheless, the Army of Salt is substantially weakened by our ban. ?] 
+
+@unban_as
+view-if: as_banned = 1
+on-arrival: as_banned = 0; as_strength += 100; as_militancy += 0.05
+
+The Army of Salt is no longer banned. They immediately go on a recruiting spree.
+
+@ban_la
+on-arrival: la_strength *= 0.85; la_strength *= 0.7 if police_loyalty >= 0.75; la_banned = 1; npr_relation -= 5; police_loyalty -= 0.1; coalition_dissent += 1 if tacc_in_government = 1 and in_grand_coalition = 1 and president = "Allen Pazceky"; la_ban_timer = 6;
+view-if: la_banned == 0
+
+[? if president == "Allen Pazceky": Banning the Little Army weakens our relationship with President Allen Pazceky, as well as the political right and the national guard. ?][? if president != "Allen Pazceky": Banning the Little Army weakens our relationship with the political right and the national guard. ?] [? if tacc_in_government = 1 and in_grand_coalition = 1 and president = "Allen Pazceky" : It also weakens our coalition due to the influence of Allen Pazceky on the right wing of our coalition. ?] In addition, the Little Army still operates out of public sight. 
+
+@unban_la
+view-if: la_banned = 1
+on-arrival: la_banned = 0; la_strength += 100
+
+The Little Army is no longer banned.
+
+
+@ban_cc
+view-if: communist_coalition < 3 and cc_banned = 0
+on-arrival: cpcm_relation -= 15; cc_strength -= 50; cc_banned = 1; communist_coalition -= 1; npl_relation += 5; npr_relation += 5; police_loyalty += 0.1
+
+The ban is enthusiastically carried out by the national guard, perhaps too enthusiastically. The Communists take this as one more reason why the TACC is a traitor to the left. However, the moderate and center-right parties approve, as do the national guard.
+
+@unban_cc
+view-if: cc_banned = 1
+on-arrival: cc_banned = 0; cc_strength += 50; police_loyalty -= 0.1
+
+The Communist Crimson Corps is no longer banned.
+
+@negotiate_concordat
+view-if: flazutin_concordat_progress < 1
+on-arrival: flazutin_concordat_progress += 1; npl_relation += 2*(1-dissent);
+
+We are making progress towards negotiating a concordat between the Flazutin splinter branch and the wider Church of St Matklin.
+
+@sign_concordat
+view-if: flazutin_concordat_progress >= 1 and flazutin_concordat = 0
+on-arrival: flazutin_concordat = 1; npr_relation += 5; catholics_tacc += 3*(1-dissent)
+
+We have signed a Concordat between the Flazutin splinter branch and the wider Church of St Matklin, guaranteeing religious freedom for the Flazutin Eucemenical Church. This sets the stage for the negotiation of a national Concordat covering all of Casoducria.
