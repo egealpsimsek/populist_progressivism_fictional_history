@@ -331,16 +331,17 @@ Q.economic_records = [];
 
 // State of the government
 Q.president = "Hindenburg";
-// starting chancellor: Wilhelm Marx
-Q.chancellor = "Marx";
-Q.chancellor_party = 'Z';
-Q.spd_in_government = 0;
-Q.z_in_government = 1;
-Q.ddp_in_government = 0;
-Q.dvp_in_government = 1;
-Q.dnvp_in_government = 1;
-Q.kpd_in_government = 0;
-Q.nsdap_in_government = 0;
+// starting chancellor: Kalin Wilenski
+Q.chancellor = "Wilenski";
+Q.chancellor_party = 'FEL-PUA';
+Q.tacc_in_government = 0;
+Q.npl_in_government = 0;
+Q.lp_in_government = 0;
+Q.npr_in_government = 0;
+Q.felpua_in_government = 1;
+Q.cpcm_in_government = 0;
+Q.spc_in_government = 0;
+Q.reactionary_in_government = 0;
 
 Q.in_right_coalition = 0;
 // Weimar coalition = SPD + Z + DDP
@@ -363,7 +364,7 @@ Q.in_minority_government = 0;
 // if you're in a coalition, this is an incremental counter for how many times dissent has happened from the right.
 Q.coalition_dissent = 0;
 // dissent from the KPD, in a popular front or left front government
-Q.kpd_coalition_dissent = 0;
+Q.cpcm_coalition_dissent = 0;
 
 // does the SPD tolerate the government even if it is not a participant?
 Q.spd_toleration = 0;
@@ -468,7 +469,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
-            'police', 'prussian_affairs', 'shuffle_cabinet', 'social_welfare',
+            'police', 'flazutin_affairs', 'shuffle_cabinet', 'social_welfare',
             'homosexual_rights', 'economic_policy', 'coalition_affairs',
             'war_guilt', 'womens_rights', 'economic_democracy',
             'dealing_with_toleration',
@@ -534,11 +535,12 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
+Q.wels_advisor = 1; // August von Begea
+Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 Q.crispien_advisor = 0; // Arthur Crispien
+Q.braun_advisor = 1; // Hermann Göething
 Q.hilferding_advisor = 1; // Rudolf Hilferding
 
 // left advisors
@@ -554,7 +556,6 @@ Q.breitscheid_advisor = 0; // Rudolf Breitscheid
 
 // Reformist advisors
 Q.severing_advisor = 0; // Carl Severing
-Q.braun_advisor = 0; // Otto Braun
 Q.juchacz_advisor = 0; // Marie Juchacz
 Q.baade_advisor = 0; // Fritz Baade
 
