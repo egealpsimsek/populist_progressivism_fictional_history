@@ -96,7 +96,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="The Center is a faction of Orthodox Progressives and August von Begea himself, between reform and socialism.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Liberal's goals are economic reform and benefits for capitalism.">Liberal</span>!} strength: [+ l,beral_strength : strength +], dissent: [+ liberal_dissent : dissent +]
+{!<span class="tooltip-text" title="Liberal's goals are economic reform and benefits for capitalism.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
 
 {!<span class="tooltip-text" title="Nationalists are pragmatic participants in the TACC, and seek to restart the Great War and install a Corporatist Economy">Nationalist</span>!} strength: [+ nationalist_strength : strength +], dissent: [+ nationalist_dissent : dissent +]
 
