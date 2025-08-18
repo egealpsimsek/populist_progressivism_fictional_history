@@ -10,7 +10,7 @@ new-page: true
 Herman Göething is the co-leader of the TACC, a former military pilot of Flaz ancestry and the presumed second in command to Begea. He is seeking to install himself and therefore the TACC as a magnet of Flaz support.
 
 - @coalition
-- @prussian_bulwark
+#- @prussian_bulwark
 - @snap_election
 - @root: Return to main
 
