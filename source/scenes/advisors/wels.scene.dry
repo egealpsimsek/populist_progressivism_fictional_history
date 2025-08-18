@@ -1,13 +1,13 @@
-title: Otto Wels
+title: August von Begea
 is-pinned-card: true
 tags: advisor, centrist
-card-image: img/portraits/WelsOtto.jpg
+card-image: img/portraits/Begea.jpg
 view-if: wels_advisor = 1
 new-page: true
 
-= Otto Wels
+= August von Begea
 
-Wels is the long-time chairman of the SPD. He is a gifted organizer and a member of the centrist faction.
+August von Begea is the founder and leader of The All-Casoducrian Congress. He is a veteran of the great war who achieved the rank of Lieutenant Colonel purely due to his tactical skill and acumen. Charismatic, young, idealistic and a fiery orator; he is everything the new movement needs to rise to prominence.
 
 - @clear_agenda
 - @party_discipline
