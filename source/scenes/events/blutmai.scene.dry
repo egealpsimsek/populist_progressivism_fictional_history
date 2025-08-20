@@ -58,7 +58,7 @@ on-arrival: redoctober = 1; workers_spc += 5; unemployed_spc += 5; cpcm_relation
 Negotiations between local labour leaders in the South and East of the country and the Constitutional Convention begins, with surprisingly many socialists willing to negotiate. Seeing the potential of a democratic compromise, the SPC and Strentin Vilmer force their side to the negotiating table. Unfortunatly, the Little Army and the Nationalist Party break off negotiations before an agreement can be reached. The workers councils use this time to gather munitions, organise barricades and militarily prepare (allowing them a stronger position militarily). Our centrist allies denounce our choices, but their cries are ineffectual.
 
 
-@join
+@walkout
 choose-if: kpd_relation >= 45
 unavailable-subtitle: The Communists do not trust us enough.
 on-arrival: redoctober = 1; walkout = 1; cpcm_relation += 15; spc_relation += 25; workers_cpcm += 5; unemployed_cpcm += 5; workers_spc += 5; unemployed_spc += 5; workers_tacc += 5; unemployed_tacc += 5; new_middle_spd -= 5; old_middle_spd -= 50; npl_relation -= 20; npr_relation -= 30; coalition_dissent += 2; communist_coalition += 2; cc_strength += 100; cc_militancy += 0.1; as_strength += 50; la_strength += 50
