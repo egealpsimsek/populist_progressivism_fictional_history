@@ -121,19 +121,19 @@ if (Q.as_strength) {
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Storm Detachment</span>!} Strength: [+ sd_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Storm Detachment, mostly made of the veterans of the Great War, is the paramilitary wing of the TACC.">Storm Detachment</span>!} Strength: [+ sd_strength_2 +] soldiers
 
 SD Militarization: [+ sd_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">CC</span>!} Strength: [+ cc_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Crimson Corps (Karmazynowy Korpus) is a communist group associated with the CPCM.">CC</span>!} Strength: [+ cc_strength_2 +] soldiers
 
 CC Militarization: [+ cc_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Little Army</span>!} Strength: [+ la_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Little Army is a right-wing organization of war veterans associated with the NP and intertwined with Allen Pazceky.">Little Army</span>!} Strength: [+ la_strength_2 +] members
 
 LA Militarization: [+ la_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">Army of Salt</span>!} Strength: [+ as_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Army of Salt is an ultranationalist paramilitary engaged in brutal massacres against Moors.">Army of Salt</span>!} Strength: [+ as_strength_2 +] members
 
 AS Militarization: [+ as_militancy : militancy +]
 
