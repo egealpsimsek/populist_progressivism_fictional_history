@@ -1,67 +1,67 @@
-title: May Day, 1929
+title: Factory Day, 1918
 new-page: true
-subtitle: A Communist demonstration
+subtitle: The Beginning of a Communist Revolution
 tags: event
-view-if: year = 1929 and month = 5
+view-if: year = 1918 and month = 10
 max-visits: 1
 face-image: img/redfront.jpg
 
-= May Day, 1929
+= Factory Day, 1918
 
-Tensions run high in Berlin. The Communists are planning a demonstration to commemorate the 10th anniversary of the Spartacist Uprising. No one has forgotten that it was our party members who ordered the uprising's suppression, and the Communists still blame us for the deaths of Rosa Luxemburg and Karl Liebknecht.
+Tensions run high across Casoducria. Factory Day, the official labour holiday of Casoducria has allowed hundreds of thousands of workers to have the freedom to strike, in support of their slaughtered comrades in Istharville and all across Casoducria. Idris Abbal, leader of the CPCM has whipped up quite the revolutionary frenzy amongst the workers, rightfully angered by the oppression of their comrades. SPC leader Strentin Vilmer has joined this cause, advocating for either a revolution or a decisive Constiutional Reform that he knows will never come to fruition.
 
-Many non-communists are afraid of the possibility of another violent uprising, and our allies in the Prussian coalition are asking the Prussian Interior Ministry to ban the demonstrations.
+Many fear another Little Army crackdown, as was in Istharville, and demand action from the Constitutional Convention as the provisional government. A great reckoning is about to begin in the Convention, as Socialists, Communists and Trade Unionist prepare a walkout. We are forced to act, one way or the other.
 
-- @ban: Ban the demonstrations.
-- @allow_police: Allow the demonstrations to proceed, but maintain a heavy police presence.
-- @allow: Allow the demonstrations to proceed.
-- @join: Join in the demonstrations ourselves.
+- @condemn: Condemn Socialist Transgressions.
+- @negotiate_disarm: Condemn both Little Army and Socialist militancy and call for widespread reform.
+- @negotiate: Condemn the Little Army and call for widespread reform.
+- @walkout: Join with the socialists in their Conventional Walkout.
 
-@ban
-on-arrival: blutmai = 1; kpd_relation -= 25; z_relation += 5; dvp_relation += 5; workers_spd -= 3; unemployed_spd -= 3; workers_kpd += 3; unemployed_kpd += 3; communist_coalition -= 3; strife += 1
+@condemn
+on-arrival: redoctober = 1; cpcm_relation -= 25; spc_relation -= 25; npl_relation += 5; npr_relation += 5; workers_tacc -= 3; unemployed_tacc -= 3; workers_cpcm += 3; unemployed_cpcm += 3; communist_coalition -= 3; strife += 1
 face-image: img/blutmai.jpg
 
-We issued the order to ban the demonstrations, and sent police to enforce the ban. There was a confrontation between the police and Communists, and violence erupted. Reports say that the Berlin police killed dozens of demonstrators and innocent bystanders. The Communists are already calling this incident *Blutmai*, "Bloody May".
+We have officially condemned the militancy of the socialist and communist militias, and voiced our support for a peaceful compromise. Predictably this has caused significant anger from the left, and predictably violence erupted. Reports indicate that over the weekend more than 250 workers were killed or grievly wounded by Little Army soldiers. The Communists are already calling this incident *Krwawy Octobersky*, "Bloody October".
 
-This may end any attempt at reconciliation with the KPD, but the Center and People's parties approve of our action.
+Could we still possibly salvage the situation? Is a civil war destined to engulf Casoducria, just like it engulfed Pilovia? Where will the TACC stand on the side of history?.
 
-- @corrupt_police: It is the fault of corrupt and reactionary elements within the police. Purge those responsible.
+- @la_fault: It is the fault of the Little Army's transgressions and Allen Pazceky's failures. Punish the Little Army!
 - @communist_fault: It is the fault of the Communists for refusing to follow the rule of law.
 - @no_fault: It is an unfortunate incident that should not have happened, but is no one's fault at all.
 
-@corrupt_police
-on-arrival: kpd_relation += 10; z_relation -= 2; dvp_relation -= 2; prussian_police_loyalty += 0.05
+@la_fault
+on-arrival: cpcm_relation += 10; spc_relation += 15; npl_relation -= 10; npr_relation -= 15; la_strength -= 100; la_militancy -= 0.1;
 
-We arrested the police responsible for the killings, and put them on trial. [? if judicial_reform = 0 : Unfortunately, the reactionary judiciary let them go free with barely any punishment at all. ?]
+We decried the Little Army for their naked transgressions, and thus we have managed to force through a motion aimed at punishing and weakening the Little Army. [? if nationalist_strenght >= 30 : Unfortunately, the nationalist faction of the TACC under Semyonov have refused to endorse our position. ?]
 
-This assuages some of the Communists' outrage, but certainly not all.
+This assuages some of the Socialist's outrage, but certainly not all.
 
 @communist_fault
-on-arrival: kpd_relation -= 10; z_relation += 5; dvp_relation += 5; rfb_strength -= 80; rfb_banned = 1
+on-arrival: cpcm_relation -= 10; spc_relation -= 10; npl_relation += 5; npr_relation += 5; cc_strength -= 80
 
-If the KPD continues to act illegally, they must suffer the consequences. Thus, we have banned the RFKB, their paramilitary group. The bourgeois and right-leaning parties approve.
+If the workers want to continue refusing compromise, they will inevitably suffer the consequences. Thus, we have banded together with the Nationalist Party to limit the ability of the Crimson Corps, their paramilitary group, to organise. The bourgeois and right-leaning parties approve.
 
 @no_fault
 
-This position gains us no allies, and does not alienate anyone any further.
+This position gains us no allies, and does not alienate anyone any further. At a time of decisive crisis, we have refused to take decisive action.
 
 
-@allow_police
-on-arrival: kpd_relation += 5; workers_kpd += 5; unemployed_kpd += 5
+@negotiate_disarm
+on-arrival: redoctober = 1; spc_relation += 5; workers_cpcm += 5; unemployed_cpcm += 5
 
-The demonstration proceeds peacefully under the watchful eyes of the police. Onlookers admire the strength of the Communist workers, and perhaps some of our supporters have been peeled off.
+Negotiations between local labour leaders in the South and East of the country and the Constitutional Convention begins. Most councils refuse to disarm pre-emptively, and what little compromise can be found proves worthless.
 
 
-@allow
-on-arrival: workers_kpd += 5; unemployed_kpd += 5; kpd_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1
+@negotiate
+on-arrival: redoctober = 1; workers_spc += 5; unemployed_spc += 5; cpcm_relation += 10; spc_relation += 10; cc_strength += 50; z_relation -= 3; dvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1
 
-The demonstration proceeds peacefully, with a minimal police presence. Onlookers admire the strength of the Communist workers, and perhaps some of our members have been peeled off. The KPD will never admit it, but they are developing a less hostile view towards us (even if they do not *like* us yet). Our centrist allies denounce the demonstration, but their cries are ineffectual.
+Negotiations between local labour leaders in the South and East of the country and the Constitutional Convention begins, with surprisingly many socialists willing to negotiate. Seeing the potential of a democratic compromise, the SPC and Strentin Vilmer force their side to the negotiating table. Unfortunatly, the Little Army and the Nationalist Party break off negotiations before an agreement can be reached. The workers councils use this time to gather munitions, organise barricades and militarily prepare (allowing them a stronger position militarily). Our centrist allies denounce our choices, but their cries are ineffectual.
 
 
 @join
 choose-if: kpd_relation >= 45
 unavailable-subtitle: The Communists do not trust us enough.
-on-arrival: kpd_relation += 15; workers_kpd += 5; unemployed_kpd += 5; workers_spd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; z_relation -= 10; dvp_relation -= 10; coalition_dissent += 2; communist_coalition += 2; rfb_strength += 100; rfb_militancy += 0.1; sa_strength += 50; sh_strength += 50
-achievement: die_rote_fahne
+on-arrival: redoctober = 1; walkout = 1; cpcm_relation += 15; spc_relation += 25; workers_cpcm += 5; unemployed_cpcm += 5; workers_spc += 5; unemployed_spc += 5; workers_tacc += 5; unemployed_tacc += 5; new_middle_spd -= 5; old_middle_spd -= 50; npl_relation -= 20; npr_relation -= 30; coalition_dissent += 2; communist_coalition += 2; cc_strength += 100; cc_militancy += 0.1; as_strength += 50; la_strength += 50
+achievement: progresywny_strajk
 
-It is difficult to persuade the Communists to let us march with them, given the histories of their party and ours. However, they eventually relent. The display of proletarian unity inspires the workers and terrifies the bourgeoisie and middle class. [? if in_grand_coalition : Our coalition partners in the government are outraged at our display with the communists, and are threatening to break up the government. ?] The far-right paramilitaries increase their recruitment to counter us.
+It is difficult to persuade the TACC to actually go through with the walkout, and barely 60% of our members do so, as the Nationalist Faction split off to form their own organisation. However, the remaining TACC members eventually organise their walkout alongside the Socialists. This display of progressive-socialist unity inspires the workers and terrifies the bourgeoisie and middle class. Nationalists and Liberals are outraged at our display with the communists, and are threatening to crush us alongside them. The far-right paramilitaries increase their recruitment to counter us.
