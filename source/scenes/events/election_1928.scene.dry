@@ -185,50 +185,50 @@ on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
 on-display: {!
 data = [
     {
-        "id": "kpd",
-        "legend": "KPD",
-        "name": "KPD",
-        "seats": Math.round(Q.kpd_r*5),
+        "id": "cpcm",
+        "legend": "CPCM",
+        "name": "CPCM",
+        "seats": Math.round(Q.cpcm_r*5),
+    },
+        {
+        "id": "spc",
+        "legend": "SPC",
+        "name": "SPC",
+        "seats": Math.round(Q.spc_r*5),
     }
 ];
-if (Q.sapd_formed && Q.sapd_r) {
+if (Q.wlf_formed && Q.wlf_r) {
     data.push({
-            "id": "sapd",
-            "legend": "SAPD",
-            "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*5),
+            "id": "wlf",
+            "legend": "WLF",
+            "name": "WLF",
+            "seats": Math.round(Q.wlf_r*5),
             });
 }
 data = data.concat([
     {
-        "id": "spd",
-        "legend": "SPD",
-        "name": "SPD",
-        "seats": Math.round(Q.spd_r*5),
+        "id": "tacc",
+        "legend": "TACC",
+        "name": "TACC",
+        "seats": Math.round(Q.tacc_r*5),
     },
     {
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r*5),
+        "id": "lp",
+        "legend": Q.lp_name,
+        "name": Q.lp_name,
+        "seats": Math.round(Q.lp_r*5),
     },
     {
-        "id": "z",
-        "legend": "Center",
-        "name": "Center",
-        "seats": Math.round((Q.z_r - 3)*5),
+        "id": "npl",
+        "legend": "NNP (L)",
+        "name": "NP (L)",
+        "seats": Math.round(Q.npl_r*5),
     },
     {
-        "id": "bvp",
-        "legend": "BVP",
-        "name": "BVP",
-        "seats": Math.round(3*5),
-    },
-    {
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Math.round(Q.dvp_r*5),
+        "id": "npr",
+        "legend": "NP(R)",
+        "name": "NP(R)",
+        "seats": Math.round(Q.npr_r*5),
     },
     {
         "id": "other",
@@ -237,16 +237,16 @@ data = data.concat([
         "seats": Math.round(Q.other_r*5),
     },
     {
-        "id": "dnvp",
-        "legend": "DNVP",
-        "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r*5),
+        "id": "felpua",
+        "legend": "FEL-PUA",
+        "name": "FEL-PUA",
+        "seats": Math.round(Q.felpua_r*5),
     },
     {
-        "id": "nsdap",
-        "legend": "NSDAP",
-        "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_r*5),
+        "id": "reactionary",
+        "legend": "TDR + I!",
+        "name": "TDR + I!",
+        "seats": Math.round(Q.reactionary_r*5),
     },
 ]);
 
@@ -275,11 +275,13 @@ go-to: coalition_menu
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SPD:** {!</td><td>!} **[+ spd_r +]%** {!</td><td>!} **[+ str_change_spd +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **TACC:** {!</td><td>!} **[+ tacc_r +]%** {!</td><td>!} **[+ str_change_tacc +]** {!</td></tr>!}
 
-[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td></tr>!} ?]
+[? if wlf_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}WLF: {!</td><td>!} [+ wlf_r +]% {!</td><td>!} [+ str_change_wlf +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} **SPC:** {!</td><td>!} **[+ spc_r +]%** {!</td><td>!} **[+ str_change_spc +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} CPCM: {!</td><td>!} [+ cpcm_r +]% {!</td><td>!} [+ str_change_cpcm +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!}
 
