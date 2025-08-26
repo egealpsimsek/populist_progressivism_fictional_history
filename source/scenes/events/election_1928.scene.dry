@@ -106,11 +106,12 @@ Q.center_right_coalition = Q.lp_r + Q.npl_r + Q.felpua_r + Q.other_r + Q.npr_r;
 Q.right_coalition = Q.npr_r + Q.felpua_r + Q.other_r + Q.reactionary_r -5;
 Q.far_right_coalition = Q.npr_r + Q.reactionary_r + 3;
 Q.left_coalition = Q.tacc_r + Q.spc_r + Q.wlf_r;
+Q.liberal_progressive_coalition = Q.tacc_r + Q.lp_r + Q.wlf_r;
 // this is an absurd concept lol
 Q.popular_front_coalition = Q.spc_r + Q.tacc_r + Q.lp_r - 8 + Q.wlf_r;
 Q.anti_democratic_coalition = Q.cpcm_r + Q.reactionary_r + Q.npr_r + Q.spc_r -10;
 // aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
+Q.neo_casoducria_coalition = Q.tacc_r + Q.felpua_r + Q.lp_r + Q.npl_r + Q.regionalist_r + Q.other_r + 3;
 // Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
 Q.literally_hitler_coalition = Q.felpua_r + Q.npr_r + Q.reactionary_r;
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
@@ -141,9 +142,9 @@ Q.interior_minister_party = 'Z';
 Q.justice_minister_party = 'I';
 Q.labor_minister_party = 'Z';
 Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = Q.ddp_name;
+Q.economic_minister_party = Q.lp_name;
 Q.finance_minister_party = 'DVP';
-Q.agriculture_minister_party = 'Z';
+Q.agriculture_minister_party = 'FEL-PUA';
 
 // reset KPD goals
 Q.kpd_goals_seen = 0;
@@ -168,10 +169,10 @@ Q.reichswehr_goal_completed = 0;
 
 Q.strike_term_seen = 0;
 
-Q.z_minus_bvp_r = Q.z_r - 3;
+Q.felpua_but_hitler_r = Q.felpua_r - 3;
 
 // understanding the enemy
-if (Q.nsdap_r >= 15) {
+if (Q.reactionary_r >= 15) {
     Q.understanding_enemy_timer = 2;
 }
 
@@ -181,7 +182,7 @@ for (var party of Q.parties) {
 }
 Q.election_records.push(election_result);
 !}
-on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
+on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and reactionary_r >= 15)
 on-display: {!
 data = [
     {
@@ -248,6 +249,12 @@ data = data.concat([
         "name": "TDR + I!",
         "seats": Math.round(Q.reactionary_r*5),
     },
+        {
+        "id": "regionalist",
+        "legend": "Regionalist",
+        "name": "Regionalist",
+        "seats": Math.round(Q.regionalist_r*5),
+    },
 ]);
 
 if (window && d3) {
@@ -312,11 +319,15 @@ Right-wing Coalition (NPR + FEL-PUA + Others + TDR + I!): [+ right_coalition +]%
 
 [? if anti_democratic_coalition >= 50 : Together, the anti-democratic far-left and far-right have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
+[? if progressive_coalition >= 50 : The combined parliamentary strenght of socialists, communists, progressives and certain liberals exceed a stable majority. Implementing our Progressive Agenda will be much easier. ?]
+
+[? if progressive_coalition >= 66 : The progressive factions don't just exceed a majority, they exceed a supermajority of the seats, or over 66%. This means that we can implement progressive constitutional changes. ?]
+
 There are some potential coalition arrangements.
 
 @coalition_menu
 
-- @spd_majority
+- @tacc_majority
 - @casoducria_coalition
 - @grand_coalition
 - @new_grand_coalition
