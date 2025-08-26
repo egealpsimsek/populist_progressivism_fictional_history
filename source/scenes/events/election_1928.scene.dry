@@ -286,7 +286,7 @@ go-to: coalition_menu
 
 [? if wlf_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}WLF: {!</td><td>!} [+ wlf_r +]% {!</td><td>!} [+ str_change_wlf +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} **SPC:** {!</td><td>!} **[+ spc_r +]%** {!</td><td>!} **[+ str_change_spc +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPC: {!</td><td>!} **[+ spc_r +]%** {!</td><td>!} **[+ str_change_spc +]** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} CPCM: {!</td><td>!} [+ cpcm_r +]% {!</td><td>!} [+ str_change_cpcm +] {!</td></tr>!}
 
@@ -327,8 +327,8 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
-- @tacc_majority
-- @casoducria_coalition
+- @spd_majority
+- @weimar_coalition
 - @grand_coalition
 - @new_grand_coalition
 - @unity_government
